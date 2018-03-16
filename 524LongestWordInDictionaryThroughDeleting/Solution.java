@@ -17,33 +17,21 @@ class Solution {
             }
         }); 
         for(String item : d){
-            if (s.length() < item.length())
-                continue;
-            if (isSubSeq(item, s)){
+            int i = 0;
+            for(char c : s.toCharArray()){
+                if( i < item.length() && c == item.charAt(i))
+                    i++;
+            }
+            if(i == item.length()){
                 return item;
             }
-        } 
+        }
         return "";
-   
     }
 
-    public boolean isSubSeq(String item, String s){
-        int i = 0;
-        int j = 0;
-        while(i < item.length() && j < s.length()){
-            if(item.charAt(i) == s.charAt(j)){
-                i++;
-                j++;
-            }
-            else{
-                j++;
-            }
-        }
-        return i == item.length();
-    }
 
     public static void main(String[] args){
-        String[] arr = {"ale","apple","monkey","plea"};
+        String[] arr = {"ale","appleasdfasdf","monkey","plea"};
         List<String> d = new ArrayList<String>();
         for(String item : arr){
             d.add(item);
